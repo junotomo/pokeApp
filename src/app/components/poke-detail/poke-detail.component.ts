@@ -26,7 +26,6 @@ export class PokeDetailComponent implements OnInit {
   getPokemonDetails(id) {
     this.pokemonService.getPokemonDetails(id).subscribe(
       res => {
-        console.log(res.card);
         this.pokemon = res.card;
       },
       err => {
@@ -36,8 +35,6 @@ export class PokeDetailComponent implements OnInit {
   }
 
   _getTypeColour(type: string): string {
-    console.log(type);
-
     if (type) {
       return '#' + TYPE_COLOURS[type.toLowerCase()];
     }

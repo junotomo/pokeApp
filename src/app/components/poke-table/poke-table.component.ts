@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { MatPaginator } from '@angular/material/paginator';
-
 import { PokeAPI, Results, TYPE_COLOURS } from 'src/interfaces';
 import { Router } from '@angular/router';
 
@@ -32,10 +31,7 @@ export class PokeTableComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue);
     this.pokemonService.getFilterPokemon(filterValue).subscribe((data: PokeAPI) => {
-      console.log(data);
-
       this.pokemons = data;
       data.cards.sort(function(a, b){
           if(a.name < b.name) { return -1; }
@@ -43,21 +39,15 @@ export class PokeTableComponent implements OnInit {
           return 0;
       })
     });
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    //
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
   }
 
-    _getTypeColour(type: string): string {
-      if (type) {
-        return '#' + TYPE_COLOURS[type.toLowerCase()];
-      }
+  _getTypeColour(type: string): string {
+    if (type) {
+      return '#' + TYPE_COLOURS[type.toLowerCase()];
     }
+  }
 
-    getPokemonDetails(pokemon: Results): void {
-      this.router.navigateByUrl(`/pokeDetail/${pokemon.id}`)
-    }
-
+  getPokemonDetails(pokemon: Results): void {
+    this.router.navigateByUrl(`/pokeDetail/${pokemon.id}`)
+  }
 }
