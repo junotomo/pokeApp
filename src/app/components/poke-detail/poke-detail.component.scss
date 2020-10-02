@@ -1,0 +1,97 @@
+@import "../../../assets/styles/variables.scss";
+
+.card {
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: $red;
+}
+.mat-card-header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px 7px;
+  background-color: $white;
+  padding-top: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  }
+.header-image {
+    background-size: cover;
+}
+
+
+
+.mat-card-title{
+    text-transform: uppercase;
+    margin-bottom: 0px !important;
+    color: $black;
+}
+
+.mat-card-subtitle{
+    color: $black;
+    margin-top: auto!important;
+    margin: auto 0px;
+    text-align: end;
+}
+.types {
+  display: inline-flex;
+  padding: 5px 10px;
+  text-shadow: black 1px 1px 1px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.type-box{
+  margin: 10px 0px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 5px;
+  justify-content: flex-start;
+}
+
+.detail-title{
+  font-weight: bold;
+  font-size: 16px;
+  margin: auto;
+  color: $white;
+  text-align: left;
+}
+
+.attack-box{
+  display: grid;
+  grid-row-gap: 7px;
+}
+
+.attack-title{
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  color: $white;
+}
+
+.attack-container{
+  display: grid;
+  grid-template-areas:
+  "nome nome"
+  "damage cost"
+  "text text";
+  background-color: $white;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.attack-name{
+  grid-area: nome;
+}
+
+.attack-cost{
+  grid-area: cost;
+}
+
+.attack-damage{
+  grid-area: damage;
+}
+
+.attack-text{
+  grid-area: text;
+}

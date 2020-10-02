@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <div class="mat-card-header">
+    <mat-card-title>{{pokemon.name}}</mat-card-title>
+    <mat-card-subtitle>Nº {{pokemon.number}}</mat-card-subtitle>
+  </div>
+
+  <img mat-card-image src="{{pokemon.imageUrlHiRes}}" alt="pokemon">
+
+  <mat-card-content>
+    <div class="type-box">
+      <span class="detail-title">Type:</span>
+      <div class="types" *ngFor="let type of pokemon.types"[style.background]="_getTypeColour(type)">
+        {{type}}
+      </div>
+    </div>
+    <div class="type-box">
+      <span class="detail-title">Resistente:</span>
+      <div class="types" *ngFor="let resistant of pokemon.resistances"[style.background]="_getTypeColour(resistant.type)">
+        {{resistant.type}}
+      </div>
+    </div>
+    <div class="type-box">
+      <span class="detail-title">Fraqueza:</span>
+      <div class="types" *ngFor="let weak of pokemon.weaknesses"[style.background]="_getTypeColour(weak.type)">
+        {{weak.type}}
+      </div>
+    </div>
+    <div class="attack-box">
+      <span class="attack-title">Ataques:</span>
+      <div class="attack-container" *ngFor="let attack of pokemon.attacks">
+        <span class="attack-name">nome: {{attack.name}}</span>
+        <span class="attack-cost">custo: {{attack.convertedEnergyCost}}</span>
+        <span class="attack-damage">dano: {{attack.damage}}</span>
+        <span class="attack-text">descrição: {{attack.text}}</span>
+      </div>
+    </div>
+
+  </mat-card-content>
+
+</mat-card>

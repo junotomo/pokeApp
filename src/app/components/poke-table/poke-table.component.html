@@ -1,0 +1,28 @@
+<div class="container">
+
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+
+<div fxLayout="row wrap" fxLayoutGap="10px 10px" fxLayoutAlign="center" >
+  <ng-container *ngFor="let pokemon of pokemons.cards">
+    <mat-card (click)="getPokemonDetails(pokemon)">
+      <mat-card-title>
+        <span>{{pokemon.name}}</span>
+        <span class="pokemon-id">{{pokemon.number}}</span>
+      </mat-card-title>
+      <img mat-card-image src='{{pokemon.imageUrl}}' alt="pokemmon img">
+      <mat-card-footer>
+        <div *ngFor="let type of pokemon.types"
+          class="types"
+          [style.background]="_getTypeColour(type)"
+          >
+          {{type}}
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </ng-container>
+
+
+</div>
